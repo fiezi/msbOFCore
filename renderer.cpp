@@ -839,6 +839,9 @@ void Renderer::draw(){
 	 *	Draw Final Image
 	 */
 
+    glClearColor( backgroundColor.r,backgroundColor.g,backgroundColor.b,backgroundColor.a );
+    glClear(GL_COLOR_BUFFER_BIT);
+
     for (int i=0;i<(int)layerList.size();i++){
 
 		if (bDrawLighting){
@@ -957,7 +960,6 @@ void Renderer::drawSceneTexture(){
     glDrawBuffers(4,drawBuffers);
 
     glClearColor( -1.0f, -1.0f, -1.0f, -1.0f );
-//    glClearColor( backgroundColor.r,backgroundColor.g,backgroundColor.b,backgroundColor.a );
 
 
     for (int i=0;i<(int)layerList.size();i++){

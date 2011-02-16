@@ -88,7 +88,7 @@ void Input::setup(){
 	windowX=100;
 	windowY=100;
 
-	glutIgnoreKeyRepeat(1);
+	//glutIgnoreKeyRepeat(1);
 
     #ifdef TARGET_WIN32
         verdana.loadFont("../verdana.ttf",8);
