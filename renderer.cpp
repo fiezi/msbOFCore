@@ -422,6 +422,13 @@ void Renderer::setup(){
 		bMultisample=false;
 		cout << "Multisampling not supported for FBOs, switching them off..." << endl;
 	}
+
+    //also, set back dataPath
+
+    //god, this took forever to figure out...
+    WCHAR* dataDir=L"..";
+    SetCurrentDirectoryW(dataDir);
+
 #endif
 
     //picking!
