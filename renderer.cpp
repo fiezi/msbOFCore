@@ -273,12 +273,6 @@ void Renderer::loadPreferences(){
 
 	cout << myPath << endl;
 	chdir( ( ofToDataPath("").c_str() ) );
-#else
-
-    //god, this took forever to figure out...
-    WCHAR* dataDir=L"data/";
-    SetCurrentDirectoryW(dataDir);
-
 #endif
 
     input=Input::getInstance();
@@ -426,8 +420,6 @@ void Renderer::setup(){
     //also, set back dataPath
 
     //god, this took forever to figure out...
-    WCHAR* dataDir=L"..";
-    SetCurrentDirectoryW(dataDir);
 
 #endif
 
