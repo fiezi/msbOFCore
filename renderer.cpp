@@ -36,10 +36,6 @@
     #include <conio.h>
     #include <tchar.h>
 
-    #define BUF_SIZE 640*480*8
-    TCHAR szName[]=TEXT("Global\\MyFileMappingObject");
-
-
 #endif
 
 //static link
