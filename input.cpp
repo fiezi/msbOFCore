@@ -440,7 +440,7 @@ void Input::keyUp(unsigned char key,int x,int y){
 
         // reload all shaders!
         if (key=='S')
-               loadShaders("data/basic.library");
+               loadShaders("basic.library");
 
 
         if (key==GLUT_KEY_LEFT && keyVector.x==-1)

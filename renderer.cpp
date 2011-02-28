@@ -402,6 +402,8 @@ void Renderer::setup(){
     input->setup();          //controller gets created here!
 
 
+    glEnable(GL_TEXTURE_RECTANGLE_ARB);
+
     //this is setting up the menu - I don't want to make this xml based now, it's too complicated
     for (int i=0;i<(int)library.size();i++){
         input->loadTextures(library[i]);

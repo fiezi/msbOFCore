@@ -18,6 +18,7 @@
 #include "includes.h"
 #include "tinyxml.h"
 
+
 //*****************************************
 //Template for assigning memberIDs
 //*****************************************
@@ -79,6 +80,8 @@ class Node;
 typedef int ListID;                             //convenient way of making clear what those mean...
 typedef unsigned int uint;                      //to get rid of compiler warnings and not type "unsigned" all the time...
 
+
+
 class Actor{
 
         /***********************************************************************************
@@ -88,6 +91,8 @@ class Actor{
         ************************************************************************************/
 
 public:
+
+
 
        Renderer* renderer;                          //connections to renderer and input classes...
        Input* input;
