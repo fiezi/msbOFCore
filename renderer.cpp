@@ -796,9 +796,11 @@ void Renderer::draw(){
 
 
     glMatrixMode(GL_PROJECTION);
+	glPushMatrix();
 	glLoadIdentity();
 
 	glMatrixMode(GL_MODELVIEW);
+	glPushMatrix();
 	glLoadIdentity();
 
     setupCamera(true);
@@ -869,6 +871,14 @@ void Renderer::draw(){
     frames++;
     deltaTime=glutGet(GLUT_ELAPSED_TIME)-currentTime;
     currentTime=glutGet(GLUT_ELAPSED_TIME);
+
+	glMatrixMode(GL_MODELVIEW);
+	glPopMatrix();
+
+    glMatrixMode(GL_PROJECTION);
+	glPopMatrix();
+
+	glMatrixMode(GL_MODELVIEW);
 
 }
 
