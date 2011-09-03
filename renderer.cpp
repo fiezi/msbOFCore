@@ -791,6 +791,8 @@ void Renderer::setupCamera(bool bCalculateMatrices){
 
 void Renderer::draw(){
 
+    glEnable(GL_LIGHTING);
+    glEnable(GL_TEXTURE);
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_BLEND);
 
@@ -867,6 +869,8 @@ void Renderer::draw(){
 	draw2D();
 
     glUseProgram(0);
+    glDisable(GL_LIGHTING);
+    glDisable(GL_TEXTURE);
 
     frames++;
     deltaTime=glutGet(GLUT_ELAPSED_TIME)-currentTime;

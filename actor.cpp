@@ -725,8 +725,6 @@ void Actor::memberFromString(memberID *mID,string value){
     cValue = new char [value.size()+1];
     strcpy (cValue, value.c_str());
 
-
-
     //give special priority to locations and other vectors!
     if (setPropertyTo (mID, readVector3f(cValue)))
         return;
