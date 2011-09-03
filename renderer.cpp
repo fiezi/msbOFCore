@@ -272,7 +272,7 @@ void Renderer::loadPreferences(){
 	myPath.erase(myPath.end()-24, myPath.end() );
 
 	cout << myPath << endl;
-	chdir( ( ofToDataPath("").c_str() ) );
+	chdir( ( ofToDataPath("..").c_str() ) );
 #endif
 
     input=Input::getInstance();
