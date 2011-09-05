@@ -56,7 +56,7 @@ input->focusButton=this;
 input->inputText="";
 input->bTextInput=true;
 //but also: read the type of the property, if we're connected to one and set it to the inputString!
-if (parent && buttonProperty!="" && tooltip!=""){
+if (parent && buttonProperty!="NULL" && buttonProperty!="" && tooltip!=""){
     //go through tooltip and stop when we find a " "!
     char* myTooltip=(char*)tooltip.c_str();
     char* preText = strtok(myTooltip, " "); // Splits spaces between words in st
@@ -124,6 +124,8 @@ void TextInputButton::focusClick(){
              cout << "no such property: " << buttonProperty;
         }
 
+    }
+
         if (parent)
           parent->trigger(this);
 
@@ -134,7 +136,7 @@ void TextInputButton::focusClick(){
         input->inputText="NULL";
 
         bEditing=false;
-    }
+
     BasicButton::focusClick();
 }
 
