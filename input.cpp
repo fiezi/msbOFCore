@@ -155,6 +155,7 @@ void Input::pressedMouse(int button,int state,int x, int y){
     cout << "pressed button: " << button << endl;
 
 	// first gather information and select states
+
     windowX=glutGet( GLUT_WINDOW_X);
     windowY=glutGet( GLUT_WINDOW_Y);
 
