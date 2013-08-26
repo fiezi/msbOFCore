@@ -11,6 +11,8 @@ using namespace std;
 
 #include "ofMain.h"
 #include "vmath.h"
+#include "glut.h"
+#include "FreeImage.h"
 
 
 #include <typeinfo>

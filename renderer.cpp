@@ -414,10 +414,10 @@ void Renderer::setup(){
     //background Color
 
 #ifdef TARGET_WIN32
-	if (!GLEE_EXT_framebuffer_multisample){
+	//if (!GLEE_EXT_framebuffer_multisample){
 		bMultisample=false;
 		cout << "Multisampling not supported for FBOs, switching them off..." << endl;
-	}
+	//}
 
     //also, set back dataPath
 
