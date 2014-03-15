@@ -32,6 +32,12 @@ void TextInputButton::update(double deltaTime){
         tooltip=input->inputText;
         if ((int)(renderer->currentTime)%1000 < 500)
             tooltip+="|";
+    }else{
+        if (parent && buttonProperty!="NULL"){
+        memberID * mID=&parent->property[buttonProperty];
+        if (mID)
+            tooltip=memberToString(mID);
+        }
     }
 }
 

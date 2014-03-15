@@ -816,7 +816,7 @@ void Renderer::draw(){
     */
 
 
-	drawSceneTexture();
+	//drawSceneTexture();
 
 	/////////////////////////////////////////////////////
     /// 2D Elements from here
@@ -840,9 +840,10 @@ void Renderer::draw(){
 	 *	Draw Final Image
 	 */
 
-    glClearColor( backgroundColor.r,backgroundColor.g,backgroundColor.b,backgroundColor.a );
-    glClear(GL_COLOR_BUFFER_BIT);
+    //glClearColor( backgroundColor.r,backgroundColor.g,backgroundColor.b,backgroundColor.a );
+    //glClear(GL_COLOR_BUFFER_BIT);
 
+    /*
     for (int i=0;i<(int)layerList.size();i++){
 
 		if (bDrawLighting){
@@ -854,6 +855,7 @@ void Renderer::draw(){
 
         drawButton(layerList[i]);
     }
+    */
 
     /*
     *   DisplayDebug
