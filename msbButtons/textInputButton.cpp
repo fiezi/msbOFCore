@@ -10,6 +10,7 @@ name="TextInputButton";
 parent=NULL;
 buttonProperty="NULL";
 bEditing=false;
+bShowCursor=true;
 }
 
 TextInputButton::~TextInputButton(){}
@@ -30,7 +31,7 @@ void TextInputButton::update(double deltaTime){
 
     if (bEditing){
         tooltip=input->inputText;
-        if ((int)(renderer->currentTime)%1000 < 500)
+        if ((int)(renderer->currentTime)%1000 < 500 && bShowCursor)
             tooltip+="|";
     }else{
         if (parent && buttonProperty!="NULL"){

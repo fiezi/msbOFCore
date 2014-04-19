@@ -8,6 +8,7 @@ class TextInputButton: public BasicButton{
 public:
 
     bool    bEditing;           //are we typing in text?
+    bool    bShowCursor;
 
     TextInputButton();
     virtual ~TextInputButton();
