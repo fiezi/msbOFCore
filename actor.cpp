@@ -467,6 +467,10 @@ void Actor::updateShaders(){
         glUniform1iARB(glGetUniformLocation(renderer->shaderList[sceneShaderID]->shader, "tex"), 0);
     }
 
+    if (renderer->shaderList[sceneShaderID]->shader){
+        glUniform1iARB(glGetUniformLocation(renderer->shaderList[sceneShaderID]->shader, "tex2"), 1);
+    }
+
 
     if ( ( (drawType==DRAW_VBOMESH) && renderer->vboList[vboMeshID] && renderer->vboList[vboMeshID]->vertexInterpretation==GL_POINTS )
             || drawType==DRAW_PARTICLES){

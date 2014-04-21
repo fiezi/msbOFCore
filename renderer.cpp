@@ -768,15 +768,15 @@ void Renderer::setupCamera(bool bCalculateMatrices){
 //setup camera
 	glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-/*
+
 	gluLookAt(camActor->location.x, camActor->location.y,camActor->location.z,
 		      camActor->zAxis.x,camActor->zAxis.y,camActor->zAxis.z,
 			  camActor->yAxis.x, camActor->yAxis.y,camActor->yAxis.z);
-*/
+/*
 	gluLookAt(0,0,0,
 		      0,0,-1,
 			  0,1,0);
-
+*/
     if (bCalculateMatrices){
         glGetFloatv(GL_PROJECTION_MATRIX,projectionMatrix);
         glGetFloatv(GL_MODELVIEW_MATRIX,cameraMatrix);
@@ -816,7 +816,7 @@ void Renderer::draw(){
     */
 
 
-	//drawSceneTexture();
+	drawSceneTexture();
 
 	/////////////////////////////////////////////////////
     /// 2D Elements from here
@@ -840,10 +840,10 @@ void Renderer::draw(){
 	 *	Draw Final Image
 	 */
 
-    //glClearColor( backgroundColor.r,backgroundColor.g,backgroundColor.b,backgroundColor.a );
+    glClearColor( backgroundColor.r,backgroundColor.g,backgroundColor.b,backgroundColor.a );
     //glClear(GL_COLOR_BUFFER_BIT);
 
-    /*
+
     for (int i=0;i<(int)layerList.size();i++){
 
 		if (bDrawLighting){
@@ -855,7 +855,7 @@ void Renderer::draw(){
 
         drawButton(layerList[i]);
     }
-    */
+
 
     /*
     *   DisplayDebug
@@ -1342,13 +1342,24 @@ void Renderer::draw2D(){
 
 void Renderer::drawButton(BasicButton* b){
 
+
+    //set Texture
+    glActiveTexture(GL_TEXTURE0);
+    //glEnable (GL_ARB_texture_rectangle); //- leave this to OpenFrameworks??
+    glBindTexture(GL_TEXTURE_2D, textureList[b->textureID]->texture);
+
+    if (b->ofTexturePtr){
+        glActiveTexture(GL_TEXTURE1);
+        glEnable (b->ofTexturePtr->texData.textureTarget); //- leave this to OpenFrameworks??
+        glBindTexture(b->ofTexturePtr->texData.textureTarget, b->ofTexturePtr->texData.textureID);
+    }
+    //setupTexturing(b->textureID,b);
+
+
     //set Shader
     setupShading(b->sceneShaderID);
     b->updateShaders();
 
-    //set Texture
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, textureList[b->textureID]->texture);
 
     glPushMatrix();
 
@@ -1359,6 +1370,9 @@ void Renderer::drawButton(BasicButton* b){
     //TODO:phase out...
     b->drawPlane();
     //drawPlane(0.0, 0.0, b->scale.x, b->scale.y, b->color);
+
+    glDisable (GL_ARB_texture_rectangle);
+    glActiveTexture(GL_TEXTURE0);
 
     glPopMatrix();
 
@@ -1852,8 +1866,8 @@ void Renderer::setupTexturing(string texName, Actor* a){
     if (!a->ofTexturePtr){
         glBindTexture(GL_TEXTURE_2D, textureList[texName]->texture);
     }else{
-        glEnable(a->ofTexturePtr->texData.textureTarget);
-        glEnable (GL_ARB_texture_rectangle);
+        //glEnable(a->ofTexturePtr->texData.textureTarget);
+        glEnable (GL_ARB_texture_rectangle); //- leave this to OpenFrameworks??
         glBindTexture(a->ofTexturePtr->texData.textureTarget, a->ofTexturePtr->texData.textureID);
     }
 
@@ -1925,7 +1939,7 @@ void Renderer::pick(int x, int y){
 
 
 
-    glCopyTexSubImage2D(GL_TEXTURE_2D,0,0,0,(int) (input->mouseX * xRatio),(int) ((screenY-input->mouseY)*yRatio) ,1 ,1 );
+    glCopyTexSubImage2D(GL_TEXTURE_2D,0,0,0,(int) (x * xRatio),(int) ((screenY-y)*yRatio) ,1 ,1 );
     glGetTexImage(GL_TEXTURE_2D,0,GL_BGRA,GL_FLOAT,&mousePos);
 
 
