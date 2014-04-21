@@ -1365,6 +1365,8 @@ void Renderer::drawButton(BasicButton* b){
 
     //buttons only translate
     glTranslatef(b->location.x,b->location.y,b->location.z);
+    //only rotate buttons on z-Axis
+    glRotatef(b->rotation.z,0,0,1);
 
     //draw
     //TODO:phase out...
